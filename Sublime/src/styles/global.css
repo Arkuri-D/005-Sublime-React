@@ -64,3 +64,24 @@ margin: 0px;
     color: #9f96c3;
     cursor: pointer;
 }
+
+
+.Body{
+    display: flex;
+    background-color: #9f96c3;
+}
+
+.Body .MenuD > ul > li {
+    position: relative; /* Posiciona el submenú de forma absoluta */
+    top: 0; /* Alinea el submenú en la parte superior del menú principal */
+    left: 100%; /* Desplaza el submenú a la derecha del menú principal */
+    display:none ; /* Oculta el submenú por defecto */
+}
+
+.Body .MenuD:hover > ul > li {
+    display: block; /* Muestra el submenú cuando se pasa el ratón sobre el menú principal */
+}
+
+.SubMenuD{
+    background-color: red;
+}
