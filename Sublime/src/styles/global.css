@@ -1,5 +1,7 @@
 *{
 margin: 0px;
+padding: 0px;
+list-style-type: none; /*quita el circulito de las listas*/
 }
 
 .Header{
@@ -71,17 +73,37 @@ margin: 0px;
     background-color: #9f96c3;
 }
 
-.Body .MenuD > ul > li {
-    position: relative; /* Posiciona el submenú de forma absoluta */
-    top: 0; /* Alinea el submenú en la parte superior del menú principal */
-    left: 100%; /* Desplaza el submenú a la derecha del menú principal */
-    display:none ; /* Oculta el submenú por defecto */
+.Body .MenuD {
+    position: relative;
 }
 
-.Body .MenuD:hover > ul > li {
+.MenuD >h3 {
+    width: min-content;
+}
+.Body .MenuD > ul {
+    background-color: #9f96c3;
+    position: absolute; /* Posiciona el submenú de forma absoluta */
+    top: 0%; /* Alinea el submenú en la parte superior del menú principal */
+    left: 100%; /* Desplaza el submenú a la derecha del menú principal */
+    display: ; /* Oculta el submenú por defecto */
+    width: max-content;
+}
+
+.MenuD:hover > ul {
     display: block; /* Muestra el submenú cuando se pasa el ratón sobre el menú principal */
 }
 
-.SubMenuD{
-    background-color: red;
+.SubMenuD > ul{
+    position: relative;
 }
+
+.SubMenuD > ul >li{
+    background-color: red;
+    position: absolute; /* Posiciona el submenú de forma absoluta */
+    top: 0px; /* Alinea el submenú en la parte superior del menú principal */
+    left: 100%; /* Desplaza el submenú a la derecha del menú principal */
+    display: block;/* Oculta el submenú por defecto */
+    width: max-content;
+    margin-top: 5px;
+}
+
