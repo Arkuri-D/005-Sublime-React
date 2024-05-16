@@ -84,6 +84,8 @@ a{
 .Body .MenuD {
     position: relative;
     padding: 0px 10px;
+    text-align: center;
+    color: #666666;
 }
 
 .MenuD > h3 {
@@ -97,7 +99,9 @@ a{
     top: 100%; /* Desplaza el menú principal hacia abajo */
     left: 0; /* Alinea el menú principal al borde izquierdo */
     display: none; /* Oculta el submenú por defecto */
-    width: max-content;
+    width:100%;
+    min-width: max-content;
+    padding: 10px;
     z-index: 1; /* Asegura que el menú principal esté por encima de otros contenidos */
 }
 
@@ -125,10 +129,15 @@ a{
 .SubMenuD > ul > li {
     background-color: white;
     white-space: nowrap;
+    margin: 0px 10px;
+    padding: 10px 0px;
+    border-bottom: 1px solid #666666;
 }
 
 .MenuD > ul > li {
     position: relative;
     white-space: nowrap;
+    padding: 10px 0px;
+    border-bottom: 1px solid #666666;
 }
 
