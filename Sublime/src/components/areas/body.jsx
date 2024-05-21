@@ -1,15 +1,15 @@
-import React from 'react'
+import React from 'react';
 import MenuD1 from '../specific/menud1';
+import MainAds from '../generics/main_ads';
 
-function body() {
+function Body() {
     return (
-        <>
         <div className='Body'>
             <MenuD1 />
+            <MainAds />
             <div>body</div>
-            </div>
-        </>
-    )
+        </div>
+    );
 }
 
-export default body
+export default Body;
