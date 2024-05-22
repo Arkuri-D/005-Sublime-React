@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import TestAdd from '../../assets/TestAdd.jpeg';
 import TestAdd1 from '../../assets/TestAdd1.png';
 import TestAdd2 from '../../assets/TestAdd2.png';
@@ -17,27 +17,30 @@ const ads = [
 export default function MainAds() {
     const [currentAdIndex, setCurrentAdIndex] = useState(0);
 
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentAdIndex(prevIndex => (prevIndex + 1) % ads.length);
+        }, 5000);
+        return () => clearInterval(interval);
+    }, []);
+
     const handleButtonClick = (index) => {
         setCurrentAdIndex(index);
     };
 
+    const getPreviousIndex = () => (currentAdIndex - 1 + ads.length) % ads.length;
+    const getNextIndex = () => (currentAdIndex + 1) % ads.length;
+
     return (
         <div className="mainads">
             <div className="image-container">
-                {ads.map((ad, index) => (
-                    <img
-                        key={index}
-                        src={ad.src || TestAdd}
-                        alt={ad.alt}
-                        style={{ display: index === currentAdIndex ? 'block' : 'none', margin: '0 auto' }}
-                    />
-                ))}
+                <img src={ads[getPreviousIndex()].src} alt={ads[getPreviousIndex()].alt} className="side-image left" />
+                <img src={ads[currentAdIndex].src || TestAdd} alt={ads[currentAdIndex].alt} className="main-image" />
+                <img src={ads[getNextIndex()].src} alt={ads[getNextIndex()].alt} className="side-image right" />
             </div>
             <div className="buttons-container">
                 {ads.map((_, index) => (
-                    <button key={index} onClick={() => handleButtonClick(index)}>
-                        {`Button ${index + 1}`}
-                    </button>
+                    <button key={index} onClick={() => handleButtonClick(index)} className={index === currentAdIndex ? 'active' : ''}></button>
                 ))}
             </div>
         </div>
