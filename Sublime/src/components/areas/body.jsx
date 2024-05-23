@@ -9,7 +9,6 @@ function Body() {
             <MenuD1 />
             <MainAds />
             <Productarea />
-            <div>body</div>
         </div>
     );
 }
