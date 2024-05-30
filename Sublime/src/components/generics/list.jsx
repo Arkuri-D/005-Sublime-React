@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+//listas comolas del footer
 const List = ({ elements }) => {
     if (!elements || elements.length === 0) {
         return null; // Retorna null si no hay elementos en el array
