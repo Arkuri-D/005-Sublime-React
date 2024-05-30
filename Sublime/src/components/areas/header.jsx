@@ -1,20 +1,17 @@
 import React from 'react';
 import Logo from '../generics/logo_s';
 import Search from '../generics/search_b';
-import Btn from '../generics/g_btns';
+import AuthButtons from '../specific/register_area';
 
 function Headers() {
     return (
-    <>
-        <div className="Header">
-    <Logo/>
-    <Search/>
-<div>
-    <Btn contet= "Registrarme"/>
-    <Btn contet= "Iniciar sesión"/>
-</div>
-        </div>
-    </>
+        <>
+            <div className="Header">
+                <Logo />
+                <Search />
+                <AuthButtons />
+            </div>
+        </>
     );
 }
 

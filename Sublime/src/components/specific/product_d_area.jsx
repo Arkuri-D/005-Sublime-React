@@ -1,7 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
-import Product from '../generics/producto_d'; // Asumiendo que esta ruta es correcta
+import Product from '../generics/producto_d';
 import TestAdd from '../../assets/TestAdd.jpeg';
 
 // Componente ProductList

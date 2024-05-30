@@ -81,7 +81,49 @@ a {
     cursor: pointer;
 }
 
-/* Body styles */
+.gbtn img{
+    height: 100%;
+}
+
+.img-before {
+    margin-right: 8px; /* Ajusta este valor según sea necesario */
+}
+
+.img-after {
+    margin-left: 8px; /* Ajusta este valor según sea necesario */
+}
+
+.auth_area{
+    display: flex;
+    gap: 10px;
+}
+
+.form-popup {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.register-form, .login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.register-form label, .login-form label {
+    margin-bottom: 10px;
+}
+
+.register-form button, .login-form button {
+    margin-top: 10px;
+}
+
+/* Body styles *********************************************************/
 .Body .menucontainer {
     display: flex;
 }
