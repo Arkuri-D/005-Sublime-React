@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Btn from '../generics/g_btns';
 import Personita from '../../assets/PERSONA ICONO PERFIL.png';
 import Bolsita from '../../assets/BOLSA ICONO  PARA CARRITO.png';
@@ -7,6 +7,8 @@ const AuthButtons = () => {
     const [loged, setLoged] = useState(false);
     const [showRegisterForm, setShowRegisterForm] = useState(false);
     const [showLoginForm, setShowLoginForm] = useState(false);
+    const registerFormRef = useRef(null);
+    const loginFormRef = useRef(null);
 
     const handleRegisterClick = () => {
         setShowRegisterForm(true);
@@ -17,6 +19,22 @@ const AuthButtons = () => {
         setShowLoginForm(true);
         setShowRegisterForm(false);
     };
+
+    const handleClickOutside = (event) => {
+        if (registerFormRef.current && !registerFormRef.current.contains(event.target)) {
+            setShowRegisterForm(false);
+        }
+        if (loginFormRef.current && !loginFormRef.current.contains(event.target)) {
+            setShowLoginForm(false);
+        }
+    };
+
+    useEffect(() => {
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
 
     return (
         <div>
@@ -37,41 +55,32 @@ const AuthButtons = () => {
             </div>
 
             {showRegisterForm && (
-                <div className='form-popup'>
+                <div className='form-popup' ref={registerFormRef}>
                     <form className='register-form'>
-                        <h2>Registrarme</h2>
                         <label>
-                            Email:
-                            <input type="email" />
+                            <input type="email" placeholder='Tuemail@ejemplo.com' />
                         </label>
                         <label>
-                            Contraseña:
-                            <input type="password" />
+                            <input type="password" placeholder='Crear Contraseña' />
                         </label>
                         <label>
-                            Confirmar Contraseña:
-                            <input type="password" />
+                            <input type="password" placeholder='Confirmar Contraseña'/>
                         </label>
-                        <button type="submit">Enviar</button>
-                        <button type="button" onClick={() => setShowRegisterForm(false)}>Cerrar</button>
+                        <button type="submit">Registrarme</button>
                     </form>
                 </div>
             )}
 
             {showLoginForm && (
-                <div className='form-popup'>
+                <div className='form-popup' ref={loginFormRef}>
                     <form className='login-form'>
-                        <h2>Iniciar Sesión</h2>
                         <label>
-                            Email:
-                            <input type="email" />
+                            <input type="email" placeholder='Tuemail@ejemplo.com'/>
                         </label>
                         <label>
-                            Contraseña:
-                            <input type="password" />
+                            <input type="password" placeholder='Contraseña' />
                         </label>
-                        <button type="submit">Enviar</button>
-                        <button type="button" onClick={() => setShowLoginForm(false)}>Cerrar</button>
+                        <button type="submit">Iniciar Sesión</button>
                     </form>
                 </div>
             )}
