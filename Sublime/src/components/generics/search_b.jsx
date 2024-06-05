@@ -3,11 +3,11 @@ import lupa from '../../assets/LUPA.png';
 
 export default function SearchBar() {
     return (
-        <div className="search-bar">
+            <form className="search-bar" action="">
             <input type="text" placeholder="Buscar" id='Searchbararea'/>
             <button type="submit">
                 <img src={lupa} alt="Buscar" />
             </button>
-        </div>
+            </form>
     );
 }
