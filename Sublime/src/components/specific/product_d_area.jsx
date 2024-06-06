@@ -41,6 +41,7 @@ const products = [
 // Componente principal
 const Productarea = () => (
     <div className="Productarea">
+        <h3>Productos Destacados</h3>
         <ProductList products={products} />
     </div>
 );

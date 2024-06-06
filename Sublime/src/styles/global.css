@@ -269,6 +269,12 @@ a {
 
 
 /*Product D areas*/
+
+.Productarea h3{
+    color: #9278b6;
+    margin-left: 3%;
+}
+
 .product-list {
     display: flex;
     justify-content: center;
