@@ -105,7 +105,7 @@ a {
     background-color: #9f96c3b7;
     padding: 20px;
     border: 1px solid #ccc;
-    z-index: 1000;
+    z-index: 100;
 }
 
 .register-form, .login-form {
@@ -376,16 +376,18 @@ a {
     display: flex;
     flex-direction: row-reverse; /* Cambiar la dirección del flex para que el tooltip esté a la izquierda */
     align-items: center;
+    z-index: 11;
 }
 
 .whatsapp-image {
     width: 70px; /* Ajusta el tamaño según tus necesidades */
     height: 70px; /* Ajusta el tamaño según tus necesidades */
     cursor: pointer;
+    z-index: 2;
 }
 
 .whatsapp-container a{
-    z-index: 10;
+    z-index: 110;
 }
 
 .whatsapp-tooltip {
