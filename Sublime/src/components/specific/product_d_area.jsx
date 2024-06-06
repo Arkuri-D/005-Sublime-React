@@ -31,7 +31,7 @@ ProductList.propTypes = {
 
 // Datos de ejemplo
 const products = [
-    { src: TestAdd, name: 'Taza cerámica', price: 1800, url: 'http://example.com/product1' },
+    { src: TestAdd, name: 'Taza cerámica', price: 1800, url: 'Sublime\src\ProductP.jsx' },
     { src: TestAdd, name: 'Remera Unisex', price: 1800, url: 'http://example.com/product2' },
     { src: TestAdd, name: 'Remera infantil', price: 1800, url: 'http://example.com/product3' },
     { src: TestAdd, name: 'Taza Mágica', price: 1800, url: 'http://example.com/product4' },
