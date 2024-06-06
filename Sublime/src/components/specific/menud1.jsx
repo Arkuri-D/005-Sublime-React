@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import MenuD from '../generics/menues_d';
+import preciosImg from '../../assets/ICONO DINERO LISTA DE PRECIOS.png';
 
 const Menud1 = () => {
+    const [showPrices, setShowPrices] = useState(false);
+
     const ArticulosP = [
         {
             elementos: [
@@ -42,26 +45,38 @@ const Menud1 = () => {
         }
     ];
 
-        const Combos = [
-            {
-                elementos: [
-                    { texto: 'Combos' },
-                    { texto: 'Arreglos con Dulces', url: '/arreglos-dulces' },
-                    { texto: 'Arreglos para Desayunos', url: '/arreglos-desayunos' },
-                ]
-            }
-        ];
+    const Combos = [
+        {
+            elementos: [
+                { texto: 'Combos' },
+                { texto: 'Arreglos con Dulces', url: '/arreglos-dulces' },
+                { texto: 'Arreglos para Desayunos', url: '/arreglos-desayunos' },
+            ]
+        }
+    ];
 
-        const TematicaMes = [
-            {
-                elementos: [
-                    { texto: 'Tematica del Mes' },
-                    { texto: 'Sorpresa para Mamá', url: '/sorpresa-mama' },
-                    { texto: 'Descuento Especial', url: '/descuento-especial' },
-                    { texto: 'Regalo Abuelita', url: '/regalo-abuelita' },
-                ]
-            }
-        ];
+    const TematicaMes = [
+        {
+            elementos: [
+                { texto: 'Tematica del Mes' },
+                { texto: 'Sorpresa para Mamá', url: '/sorpresa-mama' },
+                { texto: 'Descuento Especial', url: '/descuento-especial' },
+                { texto: 'Regalo Abuelita', url: '/regalo-abuelita' },
+            ]
+        }
+    ];
+
+    const Precios = [
+        { nombre: 'Producto1', precio: 10 },
+        { nombre: 'Producto2', precio: 20 },
+        { nombre: 'Producto3', precio: 30 }
+    ];
+
+    const handleOutsideClick = (e) => {
+        if (e.target.className === 'modal') {
+            setShowPrices(false);
+        }
+    };
 
     return (
         <div className='menucontainer'>
@@ -74,6 +89,24 @@ const Menud1 = () => {
             {TematicaMes.map((elemento, index) => (
                 <MenuD key={index} elementos={elemento.elementos} />
             ))}
+
+<button className='lista_precios' onClick={() => setShowPrices(true)}>
+                <img src={preciosImg} alt="Lista de Precios" style={{ marginRight: '8px' }} />
+                Lista de Precios
+            </button>
+
+            {showPrices && (
+                <div className='modal' onClick={handleOutsideClick}>
+                    <div className='modal-content'>
+                        <h3>Lista de Precios</h3>
+                        <ul>
+                            {Precios.map((precio, index) => (
+                                <li key={index}>{precio.nombre}: ${precio.precio}</li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };
